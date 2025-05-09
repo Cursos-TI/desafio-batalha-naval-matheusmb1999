@@ -15,52 +15,74 @@ int main() {
     // Inicializa o tabuleiro com valor 0
     for (i = 0; i < 10; i++) {
         for (j = 0; j < 10; j++) {
-            tabuleiro[i][j] = 0;
+            tabuleiro[i][j] = 0; // Todas os elementos da matriz recebendo o número 0
         }
     }
 
     // 2. Posicionamento do Navio #1 - Horizontal
     /* Local de início
-    linha = 1
-    coluna = A */
+    linha = 10
+    coluna = H
+    */
     
     for (i = 0; i < 3; i++) {
-        tabuleiro[0][0 + i] = 3;
+        tabuleiro[9][7 + i] = 3; // Os elementos dos índices indicados recebem o valor 3
     }
 
     // 3. Posicionamento do Navio #2 - Vertical
     /* Local de início
     linha = 7
-    coluna = J */
+    coluna = J
+    */
     
     for (i = 0; i < 3; i++) {
-        tabuleiro[6 + i][9] = 3;
-    }
-
-    // 4. Impressão do tabuleiro
-    char linha[10] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
-
-    printf("TABULEIRO BATALHA NAVAL \n");
-    printf("  ");
-
-    for (int j = 0; j < 10; j++) {
-        printf("%c ", linha[j]); // Imprime as letras do tabuleiro
-    }
-    printf("\n");
-
-    for (int i = 0; i < 10; i++) {
-        printf("%d ", i+1); // Imprime o número das linhas
-        for (int j = 0; j < 10; j++) {
-            printf("%d ", tabuleiro[i][j]);
-        }
-            printf("\n");
+        tabuleiro[0 + i][0] = 3; // Os elementos dos índices indicados recebem o valor 3
     }
 
 
     // Nível Aventureiro - Expansão do Tabuleiro e Posicionamento Diagonal
-    // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
     // Sugestão: Posicione quatro navios no tabuleiro, incluindo dois na diagonal.
     // Sugestão: Exiba o tabuleiro completo no console, mostrando 0 para posições vazias e 3 para posições ocupadas.
+
+    // 4. Posicionamento do Navio #3 - Diagonal (Superior Esquerdo)
+    /* Local de início
+    linha = 1
+    coluna = C
+    */
+    
+    for (i = 0; i < 3; i++) {
+        tabuleiro[i+1][i+3] = 3; // Os elementos dos índices indicados recebem o valor 3
+    }
+
+    // 5. Posicionamento do Navio #4 - Diagonal (Superior Direito)
+    /* Local de início
+    linha = 4
+    coluna = J
+    */
+    
+    for (i = 0; i < 3; i++) {
+        tabuleiro[5-i][7+i] = 3; // Os elementos dos índices indicados recebem o valor 3
+    }
+
+    // 6. Impressão do tabuleiro
+    char linha[10] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'}; // As letras do tabuleiro
+
+    printf("TABULEIRO BATALHA NAVAL \n");
+    printf("  "); // Espaço para as letras ficarem em cima dos elementos da matriz
+
+    for (int i = 0; i < 10; i++) {
+        printf(" %c", linha[i]); // Imprime as letras do tabuleiro
+    }
+    printf("\n");
+
+    for (int i = 0; i < 10; i++) {
+        printf("%2d", i+1); // Imprime o número das linhas
+        for (int j = 0; j < 10; j++) {
+            printf("%2d", tabuleiro[i][j]); // Imprime os elementos da matriz, conforme estabelecido no código
+        }
+            printf("\n");
+    }
+
 
     // Nível Mestre - Habilidades Especiais com Matrizes
     // Sugestão: Crie matrizes para representar habilidades especiais como cone, cruz, e octaedro.
